@@ -1,68 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.3 on win32)" generated="20231220 11:52:52.413" rpa="false" schemaversion="4">
-<suite id="s1" name="Preenchimento Incorreto" source="C:\Users\Deco\Desktop\Programando\Cursto-Robot\preenchimento_incorreto.robot">
-<test id="s1-t1" name="Verificar se quando um campo obrigatório não for preenchido corretamente o sistema exibe uma mensagem de campo obrigatório" line="11">
+<robot generator="Robot 6.1.1 (Python 3.11.3 on win32)" generated="20231220 17:15:21.253" rpa="false" schemaversion="4">
+<suite id="s1" name="Preenchimento Correto" source="c:\Users\Deco\Desktop\Programando\Cursto-Robot\preenchimento_correto.robot">
+<test id="s1-t1" name="Verificar se é possivel criar um card para cada time disponivel se preenchermos os campos corretamente" line="36">
 <kw name="Dado que eu acesse o Organo" library="setup_teardown" type="SETUP">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>url=http://localhost:3000/</arg>
 <arg>browser=Chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231220 11:52:52.623" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000/'.</msg>
-<status status="PASS" starttime="20231220 11:52:52.623" endtime="20231220 11:52:55.565"/>
+<msg timestamp="20231220 17:15:21.473" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000/'.</msg>
+<status status="PASS" starttime="20231220 17:15:21.472" endtime="20231220 17:15:23.434"/>
 </kw>
-<status status="PASS" starttime="20231220 11:52:52.622" endtime="20231220 11:52:55.565"/>
+<status status="PASS" starttime="20231220 17:15:21.471" endtime="20231220 17:15:23.434"/>
 </kw>
-<kw name="Dado que eu clique no botão criar card">
+<kw name="Dado que preencha os campos do formulário">
+<kw name="'Andre'">
+<var>${Nome}</var>
+<msg timestamp="20231220 17:15:23.439" level="FAIL">No keyword with name ''Andre'' found.</msg>
+<status status="FAIL" starttime="20231220 17:15:23.439" endtime="20231220 17:15:23.440"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CAMPO_NOME}</arg>
+<arg>${Nome}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231220 17:15:23.440" endtime="20231220 17:15:23.440"/>
+</kw>
+<kw name="FakerLibrary.Job">
+<var>${Cargo}</var>
+<status status="NOT RUN" starttime="20231220 17:15:23.442" endtime="20231220 17:15:23.443"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CAMPO_CARGO}</arg>
+<arg>${Cargo}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231220 17:15:23.443" endtime="20231220 17:15:23.443"/>
+</kw>
+<kw name="FakerLibrary.Image Url">
+<var>${Imagem}</var>
+<status status="NOT RUN" starttime="20231220 17:15:23.447" endtime="20231220 17:15:23.447"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${CAMPO_IMAGEM}</arg>
+<arg>${Imagem}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231220 17:15:23.447" endtime="20231220 17:15:23.447"/>
+</kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>${CAMPO_CARD}</arg>
+<arg>${CAMPO_TIME}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231220 11:52:55.567" level="INFO">Clicking element 'id:form-botao'.</msg>
-<status status="PASS" starttime="20231220 11:52:55.566" endtime="20231220 11:52:55.619"/>
+<status status="NOT RUN" starttime="20231220 17:15:23.447" endtime="20231220 17:15:23.448"/>
 </kw>
-<status status="PASS" starttime="20231220 11:52:55.566" endtime="20231220 11:52:55.620"/>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${selecionar_times}[0]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231220 17:15:23.448" endtime="20231220 17:15:23.448"/>
 </kw>
-<kw name="Então sistema deve apresentar mensagem de campo obrigatório">
-<kw name="Element Should Be Visible" library="SeleniumLibrary">
-<arg>id:form-nome-erro</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20231220 11:52:55.643" level="INFO">Element 'id:form-nome-erro' is displayed.</msg>
-<status status="PASS" starttime="20231220 11:52:55.620" endtime="20231220 11:52:55.643"/>
+<status status="FAIL" starttime="20231220 17:15:23.436" endtime="20231220 17:15:23.448"/>
 </kw>
-<kw name="Element Should Be Visible" library="SeleniumLibrary">
-<arg>id:form-cargo-erro</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20231220 11:52:55.662" level="INFO">Element 'id:form-cargo-erro' is displayed.</msg>
-<status status="PASS" starttime="20231220 11:52:55.643" endtime="20231220 11:52:55.663"/>
-</kw>
-<kw name="Element Should Be Visible" library="SeleniumLibrary">
-<arg>id:form-times-erro</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20231220 11:52:55.679" level="INFO">Element 'id:form-times-erro' is displayed.</msg>
-<status status="PASS" starttime="20231220 11:52:55.663" endtime="20231220 11:52:55.679"/>
-</kw>
-<status status="PASS" starttime="20231220 11:52:55.620" endtime="20231220 11:52:55.679"/>
+<kw name="Então criar e identificar 1 card em cada time disponível">
+<status status="NOT RUN" starttime="20231220 17:15:23.449" endtime="20231220 17:15:23.449"/>
 </kw>
 <kw name="Fechar o navegador" library="setup_teardown" type="TEARDOWN">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20231220 11:52:55.679" endtime="20231220 11:52:57.799"/>
+<status status="PASS" starttime="20231220 17:15:23.450" endtime="20231220 17:15:25.630"/>
 </kw>
-<status status="PASS" starttime="20231220 11:52:55.679" endtime="20231220 11:52:57.800"/>
+<status status="PASS" starttime="20231220 17:15:23.449" endtime="20231220 17:15:25.631"/>
 </kw>
-<status status="PASS" starttime="20231220 11:52:52.622" endtime="20231220 11:52:57.801"/>
+<status status="FAIL" starttime="20231220 17:15:21.471" endtime="20231220 17:15:25.633">No keyword with name ''Andre'' found.</status>
 </test>
-<status status="PASS" starttime="20231220 11:52:52.415" endtime="20231220 11:52:57.806"/>
+<status status="FAIL" starttime="20231220 17:15:21.257" endtime="20231220 17:15:25.637"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Preenchimento Incorreto">Preenchimento Incorreto</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Preenchimento Correto">Preenchimento Correto</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20231220 17:15:21.462" level="ERROR">Error in file 'c:\Users\Deco\Desktop\Programando\Cursto-Robot\preenchimento_correto.robot' on line 3: Importing library 'FakerLibrary' failed: ModuleNotFoundError: No module named 'FakerLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  c:\Users\Deco\.vscode\extensions\robocorp.robotframework-lsp-1.11.0\src\robotframework_debug_adapter
+  C:\Users\Deco\Desktop\Programando\Cursto-Robot
+  c:\Users\Deco\.vscode\extensions\robocorp.robotframework-lsp-1.11.0\src
+  c:\Users\Deco\.vscode\extensions\robocorp.robotframework-lsp-1.11.0\src\robotframework_ls\vendored
+  C:\Users\Deco\AppData\Local\Programs\Python\Python311\python311.zip
+  C:\Users\Deco\AppData\Local\Programs\Python\Python311\DLLs
+  C:\Users\Deco\AppData\Local\Programs\Python\Python311\Lib
+  C:\Users\Deco\AppData\Local\Programs\Python\Python311
+  C:\Users\Deco\AppData\Local\Programs\Python\Python311\Lib\site-packages</msg>
 </errors>
 </robot>
