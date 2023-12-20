@@ -1,86 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.3 on win32)" generated="20231220 10:44:52.403" rpa="false" schemaversion="4">
-<suite id="s1" name="Primeiroteste" source="C:\Users\Deco\Desktop\Programando\Cursto-Robot\primeiroteste.robot">
-<test id="s1-t1" name="Abrir navegador e acessar site do Organo" line="5">
+<robot generator="Robot 6.1.1 (Python 3.11.3 on win32)" generated="20231220 11:52:52.413" rpa="false" schemaversion="4">
+<suite id="s1" name="Preenchimento Incorreto" source="C:\Users\Deco\Desktop\Programando\Cursto-Robot\preenchimento_incorreto.robot">
+<test id="s1-t1" name="Verificar se quando um campo obrigatório não for preenchido corretamente o sistema exibe uma mensagem de campo obrigatório" line="11">
+<kw name="Dado que eu acesse o Organo" library="setup_teardown" type="SETUP">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>url=http://localhost:3000/</arg>
 <arg>browser=Chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231220 10:44:52.600" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000/'.</msg>
-<status status="PASS" starttime="20231220 10:44:52.599" endtime="20231220 10:44:54.517"/>
+<msg timestamp="20231220 11:52:52.623" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000/'.</msg>
+<status status="PASS" starttime="20231220 11:52:52.623" endtime="20231220 11:52:55.565"/>
 </kw>
-<status status="PASS" starttime="20231220 10:44:52.599" endtime="20231220 10:44:54.518"/>
-</test>
-<test id="s1-t2" name="Preencher os campos do formulário" line="8">
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>id:form-nome</arg>
-<arg>Akemi</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231220 10:44:54.520" level="INFO">Typing text 'Akemi' into text field 'id:form-nome'.</msg>
-<status status="PASS" starttime="20231220 10:44:54.519" endtime="20231220 10:44:54.615"/>
+<status status="PASS" starttime="20231220 11:52:52.622" endtime="20231220 11:52:55.565"/>
 </kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>id:form-cargo</arg>
-<arg>Desenvolvedor</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231220 10:44:54.616" level="INFO">Typing text 'Desenvolvedor' into text field 'id:form-cargo'.</msg>
-<status status="PASS" starttime="20231220 10:44:54.615" endtime="20231220 10:44:54.694"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>id:form-imagem</arg>
-<arg>https://picsum.photos/200/300</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231220 10:44:54.695" level="INFO">Typing text 'https://picsum.photos/200/300' into text field 'id:form-imagem'.</msg>
-<status status="PASS" starttime="20231220 10:44:54.695" endtime="20231220 10:44:54.800"/>
-</kw>
+<kw name="Dado que eu clique no botão criar card">
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>class:lista-suspensa</arg>
+<arg>${CAMPO_CARD}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231220 10:44:54.801" level="INFO">Clicking element 'class:lista-suspensa'.</msg>
-<status status="PASS" starttime="20231220 10:44:54.800" endtime="20231220 10:44:54.842"/>
+<msg timestamp="20231220 11:52:55.567" level="INFO">Clicking element 'id:form-botao'.</msg>
+<status status="PASS" starttime="20231220 11:52:55.566" endtime="20231220 11:52:55.619"/>
 </kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>//option[contains(.,'Programação')]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231220 10:44:54.844" level="INFO">Clicking element '//option[contains(.,'Programação')]'.</msg>
-<status status="PASS" starttime="20231220 10:44:54.843" endtime="20231220 10:44:54.872"/>
+<status status="PASS" starttime="20231220 11:52:55.566" endtime="20231220 11:52:55.620"/>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>10s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231220 10:45:04.872" level="INFO">Slept 10 seconds</msg>
-<status status="PASS" starttime="20231220 10:44:54.872" endtime="20231220 10:45:04.872"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>id:form-botao</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231220 10:45:04.875" level="INFO">Clicking element 'id:form-botao'.</msg>
-<status status="PASS" starttime="20231220 10:45:04.874" endtime="20231220 10:45:04.953"/>
+<kw name="Então sistema deve apresentar mensagem de campo obrigatório">
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>id:form-nome-erro</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20231220 11:52:55.643" level="INFO">Element 'id:form-nome-erro' is displayed.</msg>
+<status status="PASS" starttime="20231220 11:52:55.620" endtime="20231220 11:52:55.643"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
-<arg>class:colaborador</arg>
+<arg>id:form-cargo-erro</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20231220 10:45:04.974" level="INFO">Element 'class:colaborador' is displayed.</msg>
-<status status="PASS" starttime="20231220 10:45:04.954" endtime="20231220 10:45:04.974"/>
+<msg timestamp="20231220 11:52:55.662" level="INFO">Element 'id:form-cargo-erro' is displayed.</msg>
+<status status="PASS" starttime="20231220 11:52:55.643" endtime="20231220 11:52:55.663"/>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>5s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231220 10:45:09.976" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20231220 10:45:04.975" endtime="20231220 10:45:09.976"/>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>id:form-times-erro</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20231220 11:52:55.679" level="INFO">Element 'id:form-times-erro' is displayed.</msg>
+<status status="PASS" starttime="20231220 11:52:55.663" endtime="20231220 11:52:55.679"/>
 </kw>
-<status status="PASS" starttime="20231220 10:44:54.519" endtime="20231220 10:45:09.977"/>
+<status status="PASS" starttime="20231220 11:52:55.620" endtime="20231220 11:52:55.679"/>
+</kw>
+<kw name="Fechar o navegador" library="setup_teardown" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231220 11:52:55.679" endtime="20231220 11:52:57.799"/>
+</kw>
+<status status="PASS" starttime="20231220 11:52:55.679" endtime="20231220 11:52:57.800"/>
+</kw>
+<status status="PASS" starttime="20231220 11:52:52.622" endtime="20231220 11:52:57.801"/>
 </test>
-<status status="PASS" starttime="20231220 10:44:52.404" endtime="20231220 10:45:09.978"/>
+<status status="PASS" starttime="20231220 11:52:52.415" endtime="20231220 11:52:57.806"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="0" skip="0" id="s1" name="Primeiroteste">Primeiroteste</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Preenchimento Incorreto">Preenchimento Incorreto</stat>
 </suite>
 </statistics>
 <errors>
