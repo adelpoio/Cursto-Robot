@@ -95,6 +95,32 @@ Elemento Deve Estar Visível
     [Arguments]  ${locator}
     Wait Until Element Is Visible  ${locator}  10s
 
-
+## Criando um Novo Teste para Interação com o Usuário
+1. Teste para Preenchimento Incorreto do Formulário:
+robot
+*** Test Cases ***
+Teste com Formulário Incorreto
+    [Documentation]  Verifica a interação do usuário com um formulário ao preenchê-lo incorretamente
+    Iniciar Teste
+    Preencher Caixa de Texto  ${CaixaTextoID}  InformacaoIncorreta
+    Elemento Deve Estar Visível  ${ElementoVisivelID}
    
-Este readme ampliado oferece uma base sólida para trabalhar com Robot Framework, incluindo a criação de variáveis, keywords personalizadas e testes para interação com formulários incorretos. Consulte a documentação oficial do Robot Framework e SeleniumLibrary para mais informações. Boa sorte com seus testes!
+2. Keywords Atualizadas para Uso Geral:
+robot
+*** Keywords ***
+Preencher Caixa de Texto
+    [Arguments]  ${locator}  ${texto}
+    Input Text     ${locator}  ${texto}
+
+Elemento Deve Estar Visível
+    [Arguments]  ${locator}
+    Wait Until Element Is Visible  ${locator}  10s
+    
+## Relatórios de Teste e Boas Práticas de Nomenclatura
+1. Entendendo Relatórios de Teste:
+Execute seus testes e analise os relatórios gerados no final. Eles fornecem insights sobre os resultados e possíveis problemas.
+
+2. Nomenclatura Significativa:
+Dê nomes significativos aos seus testes e keywords para facilitar a leitura e compreensão.
+
+Este readme aborda a padronização do início e final dos testes com setup e teardown, além de incluir um novo teste para interação do usuário e destacar a importância de relatórios de teste e nomenclatura significativa. Consulte a documentação oficial do Robot Framework e SeleniumLibrary para mais informações. Boa sorte com seus testes!
